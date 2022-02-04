@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+
+  <table class="w3-table w3-bordered">
+    <tr>
+      <th>archivo</th>
+      <th>Descripcion</th>ç
+      <th>Tag</th>     
+      <th>imagen</th>     
+    </tr>
+
+    {% for arow in filelist %}
+    <tr>
+      <td> {{arow.file}} </td>
+      <td> {{arow.descripcion}} </td>
+      <td> {{arow.tag}} </td>
+      <td> <a href="{{arow.fileurl}}"> {{arow.file}} </a> </td>
+
+    </tr>
+    {% endfor %}
+
+  </table>
+</body>
+{% endblock %}

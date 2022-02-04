@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <style>
+        .headerTwoDiv{
+            margin:1% auto;
+            margin-right: auto; margin-left: auto; width: 70%; 
+            padding-top: 11px;
+            padding-bottom: 11px;
+        }
+        </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+        {% block footer %}
+        &copy; softwarepropio <a href="http://www.financalc.com/">you</a>.
+        {% endblock %}
+    </div>
+</body>
+</html>
