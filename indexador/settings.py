@@ -10,7 +10,7 @@ load_dotenv()
 SECRET_KEY = os.environ.get('SECRET_KEY')
 ENVIROMENT = os.environ.get('FLASK_ENV')
 IMAGE_PATH = os.environ.get('IMAGE_PATH')
-MEDIA_DIR = '/home/rufus/Descargas'
+MEDIA_DIR = os.environ.get('MEDIA_DIR')
 
 
 if ENVIROMENT == 'production-heroku':

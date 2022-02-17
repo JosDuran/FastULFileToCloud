@@ -3,7 +3,6 @@ from flask import Flask
 from .commands import create_tables
 from .commands import insert_data
 
-
 from .routes.main import main
 
 def create_app(config_file='settings.py'):

@@ -1,11 +1,11 @@
-
+from telnetlib import theNULL
 import click
 import psycopg2
 import os
 from flask.cli import with_appcontext
-from .extensions import conn
+from .extensions import getcon
 from .settings import ENVIROMENT
-from .settings import IMAGE_PATH
+from .settings import MEDIA_DIR
 
 """"
 
@@ -24,8 +24,9 @@ Electronica, libro
 @click.command(name='create_tables')
 @with_appcontext
 def create_tables():
+    aconn = getcon()
     if (ENVIROMENT == 'development') or (ENVIROMENT == 'development-fulllocal'):
-        screate = ' CREATE TABLE ffiles ( RECID  VARCHAR(255) NOT NULL, FILE VARCHAR(255) NOT NULL,  FILE_TAG VARCHAR(255) NOT NULL, FILE_DESCRIPTION VARCHAR(255) NOT NULL, fileurl VARCHAR(255) NOT NULL)'
+        screate = ' CREATE TABLE ffiles ( RECID  VARCHAR(255) NOT NULL, FILE VARCHAR(255) NOT NULL,  FILE_TAG VARCHAR(255) NOT NULL, FILE_DESCRIPTION VARCHAR(255) NOT NULL, filepath VARCHAR(255) NOT NULL)'
     
         commands = (
         screate ,
@@ -33,7 +34,7 @@ def create_tables():
  
     try:         
          
-        cur = conn.cursor() 
+        cur = aconn.cursor() 
         
         for command in commands:
             if command:
@@ -41,12 +42,12 @@ def create_tables():
         cur.close()
         
         
-        conn.commit() 
+        aconn.commit() 
     except (Exception, psycopg2.DatabaseError) as error: 
         print(error) 
     finally: 
-        if conn is not None: 
-            conn.close() 
+        if aconn is not None: 
+            aconn.close() 
 
 
 @click.command(name='insert_data')
@@ -107,23 +108,24 @@ def insert_data():
         fileobj['FILE'] = aFile
         fileobj['FILE_DESCRIPTION'] = aFileDesc
         fileobj['FILE_TAG'] = aTag       
-        afileurl = str(IMAGE_PATH + aFile)
-        fileobj['FILEURL'] = afileurl
-        aTupla = (aRecid, aFile,aFileDesc,aTag, afileurl,)
+        afilepath = str(aFile)
+        fileobj['FILEPATH'] = afilepath
+        aTupla = (aRecid, aFile,aFileDesc,aTag, afilepath,)
         fileobj['TUPLAS'] = aTupla
         listaobjs.append(fileobj)
     print (fileobj.values())
-    conn.autocommit = True
-    listtuples = [(d['RECID'], d['FILE'], d['FILE_DESCRIPTION'], d['FILE_TAG'], d['FILEURL']) for d in listaobjs]
+    aconn = getcon()
+    aconn.autocommit = True
+    listtuples = [(d['RECID'], d['FILE'], d['FILE_DESCRIPTION'], d['FILE_TAG'], d['FILEPATH']) for d in listaobjs]
     print(listtuples)
     try:
-        cursor = conn.cursor()
-        query = "INSERT INTO ffiles (RECID, FILE, FILE_DESCRIPTION,FILE_TAG, FILEURL) VALUES(%s,%s,%s,%s,%s)"
+        cursor = aconn.cursor()
+        query = "INSERT INTO ffiles (RECID, FILE, FILE_DESCRIPTION,FILE_TAG, FILEPATH) VALUES(%s,%s,%s,%s,%s)"
         print(query)
         cursor.executemany(query,listtuples)
     finally:
-        conn.commit()           
-        conn.close()
+        aconn.commit()           
+        aconn.close()
     return 'ok'
         
 

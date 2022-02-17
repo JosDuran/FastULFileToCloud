@@ -4,8 +4,8 @@ import psycopg2.extras
 import os
 
 
-from indexador.extensions import conn
-from indexador.settings import IMAGE_PATH
+from indexador.extensions import getcon
+from indexador.settings import MEDIA_DIR
 from indexador.settings import ENVIROMENT
 
 
@@ -27,15 +27,10 @@ Electronica, libro
 
 
 @main.route('/')
-def index():
-    if ENVIROMENT == 'development-fulllocal':
-        cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-    else:
-        cursor = conn.cursor()
-
-    # execute sql
-
+def index():    
+    aconn = getcon()
     try:
+        cursor = aconn.cursor(cursor_factory=psycopg2.extras.DictCursor) 
         cursor.execute("SELECT * from ffiles")
         # Fetch result
         row = cursor.fetchone()
@@ -46,7 +41,7 @@ def index():
             fileObj['file'] = row['file']
             fileObj['descripcion'] = row['file_description']
             fileObj['tag'] = row['file_tag']
-            fileObj['fileurl'] = row['fileurl']
+            fileObj['filepath'] = row['filepath']
             fileArray.append(fileObj)
             row = cursor.fetchone()
         return render_template('index.html', filelist=fileArray)
@@ -54,8 +49,8 @@ def index():
         print("a ocurrido un error", error) 
         return 'a ocurrido un error en la consulta'
     finally: 
-        if conn is not None: 
-            conn.close()
+        if aconn is not None: 
+            aconn.close()
          
 
 
@@ -63,10 +58,11 @@ def index():
 
 @main.route('/filter', methods=['POST'])
 def filter():
-    if ENVIROMENT != 'development-fulllocal':
-        cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    aconn = getcon()
+    if ENVIROMENT == 'development-fulllocal':
+        cursor = aconn.cursor(cursor_factory=psycopg2.extras.DictCursor)
     else:
-        cursor = conn.cursor()
+        cursor = aconn.cursor()
     # execute sql
     deffilter = request.form['textfilter']
     if ((deffilter == '') or (deffilter == None)):
@@ -75,7 +71,8 @@ def filter():
     else:
         sqlstr = 'SELECT * FROM ffiles WHERE file_description LIKE '
         # args=[deffilter+'%']
-        sqlstr = sqlstr + '\'' +'%'+ deffilter + '%' + '\''
+        sqlstr = sqlstr + '\'' +'%'+ deffilter + '%' + '\'' + ' OR FILE_TAG LIKE  ' + '\'' +'%'+ deffilter + '%' + '\''
+
         print(sqlstr)
         cursor.execute(sqlstr)
 
@@ -86,9 +83,9 @@ def filter():
     while row is not None:
         fileObj = dict()    # diccionario vacio
         fileObj['file'] = row['file']
-        fileObj['descripcion'] = row['FILE_description']
-        fileObj['tag'] = row['FILE_TAG']
-        fileObj['fileurl'] = row['fileurl']
+        fileObj['descripcion'] = row['file_description']
+        fileObj['tag'] = row['file_tag']
+        fileObj['filepath'] = row['filepath']
         fileArray.append(fileObj)
         row = cursor.fetchone()
 
@@ -97,7 +94,7 @@ def filter():
 
 @main.route('/media/<path:filename>')
 def media_file(filename):
-    file_path = os.path.join(app.config['MEDIA_DIR'], filename)
+    file_path = os.path.join(MEDIA_DIR, filename)
     return send_file(file_path)
 
 

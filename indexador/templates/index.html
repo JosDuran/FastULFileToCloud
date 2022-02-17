@@ -2,11 +2,28 @@
 {% block content %}
 
 <body>
+  <header class="site-header">
+    <div class="contenedor">
+        <a href="#" class="logo"><img src="/static/bigotreakred.jpg" alt="brand" /></a>
+        <a >
+        <div class="divform">
+          
+                <form action='/filter' method='POST'>
+
+                    <input name= 'textfilter' class = 'custinput' type = 'search'></input>
+                    <button class = 'custinput' type = "submit"  placeholder=" buscar">Buscar</input>
+                
+                </form>
+   
+        </div>
+        </a>
+    </div>
+</header>
 
   <table class="w3-table w3-bordered">
     <tr>
       <th>archivo</th>
-      <th>Descripcion</th>ç
+      <th>Descripcion</th>
       <th>Tag</th>     
       <th>imagen</th>     
     </tr>
@@ -16,7 +33,7 @@
       <td> {{arow.file}} </td>
       <td> {{arow.descripcion}} </td>
       <td> {{arow.tag}} </td>
-      <td> <a href="{{arow.fileurl}}"> {{arow.file}} </a> </td>
+      <td> <a href="/media/{{arow.filepath}}"> {{arow.file}} </a> </td>
 
     </tr>
     {% endfor %}
