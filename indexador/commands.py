@@ -21,12 +21,39 @@ Electronica, libro
 
 """
 
+@click.command( name = 'create_database')
+@with_appcontext
+def create_database():
+    aconn = getcon()
+    if (ENVIROMENT == 'development') or (ENVIROMENT == 'development-fulllocal'):
+        screate = f"CREATE DATABASE docker"
+        commands = (
+        screate ,
+        )
+    try:
+        cur = aconn.cursor()
+        for command in commands:
+            if command:
+                cur.execute(command) 
+        cur.close()
+        
+        
+        aconn.commit() 
+    except (Exception, psycopg2.DatabaseError) as error: 
+        print(error) 
+    finally: 
+        if aconn is not None: 
+            aconn.close() 
+
+        
+
 @click.command(name='create_tables')
 @with_appcontext
 def create_tables():
     aconn = getcon()
     if (ENVIROMENT == 'development') or (ENVIROMENT == 'development-fulllocal'):
-        screate = ' CREATE TABLE ffiles ( RECID  VARCHAR(255) NOT NULL, FILE VARCHAR(255) NOT NULL,  FILE_TAG VARCHAR(255) NOT NULL, FILE_DESCRIPTION VARCHAR(255) NOT NULL, filepath VARCHAR(255) NOT NULL)'
+        screate = ' CREATE TABLE filegen ( RECID  VARCHAR(255) NOT NULL,  FILE VARCHAR(255) NOT NULL,  FILE_DESCRIPTION VARCHAR(255) NOT NULL,' \
+                ' PAGI INTEGER NOT NULL CHECK (PAGI >0) )'
     
         commands = (
         screate ,
@@ -75,7 +102,6 @@ def insert_data():
     listaobjs = []
     aRecid = ''
     aFile = ''
-    aTag = ''
     aFileDesc = ''
     
 
@@ -100,27 +126,28 @@ def insert_data():
         numlineafiledesc = i*9+ +5
         lineafiledesc = str(lista[numlineafiledesc]).strip()
         aFileDesc = lineafiledesc
-        numlineatag = i*9 +7
-        lineatag = str(lista[numlineatag]).strip()
-        aTag = lineatag
+        numlineapag = i*9+7
+        lineanropag = str(lista[numlineapag]).strip()
+        aPag = lineanropag
+
+                
         fileobj = dict()
         fileobj['RECID'] = aRecid
         fileobj['FILE'] = aFile
         fileobj['FILE_DESCRIPTION'] = aFileDesc
-        fileobj['FILE_TAG'] = aTag       
-        afilepath = str(aFile)
-        fileobj['FILEPATH'] = afilepath
-        aTupla = (aRecid, aFile,aFileDesc,aTag, afilepath,)
+        fileobj['PAGINA'] = aPag
+
+        aTupla = (aRecid, aFile,aFileDesc,)
         fileobj['TUPLAS'] = aTupla
         listaobjs.append(fileobj)
     print (fileobj.values())
     aconn = getcon()
     aconn.autocommit = True
-    listtuples = [(d['RECID'], d['FILE'], d['FILE_DESCRIPTION'], d['FILE_TAG'], d['FILEPATH']) for d in listaobjs]
+    listtuples = [(d['RECID'], d['FILE'], d['FILE_DESCRIPTION'], d['PAGINA']) for d in listaobjs]
     print(listtuples)
     try:
         cursor = aconn.cursor()
-        query = "INSERT INTO ffiles (RECID, FILE, FILE_DESCRIPTION,FILE_TAG, FILEPATH) VALUES(%s,%s,%s,%s,%s)"
+        query = "INSERT INTO filegen (RECID, FILE, FILE_DESCRIPTION, PAGI ) VALUES(%s,%s,%s,%s)"
         print(query)
         cursor.executemany(query,listtuples)
     finally:
@@ -128,6 +155,34 @@ def insert_data():
         aconn.close()
     return 'ok'
         
+@click.command(name='empty_table')
+@with_appcontext
+def empty_table():
+    aconn = getcon()
+    if (ENVIROMENT == 'development') or (ENVIROMENT == 'development-fulllocal'):
+        screate = ' DELETE FROM FILEGEN '
+    
+        commands = (
+        screate ,
+        )
+ 
+    try:         
+         
+        cur = aconn.cursor() 
+        
+        for command in commands:
+            if command:
+                cur.execute(command) 
+        cur.close()
+        
+        
+        aconn.commit() 
+    except (Exception, psycopg2.DatabaseError) as error: 
+        print(error) 
+    finally: 
+        if aconn is not None: 
+            aconn.close() 
+
 
 
 

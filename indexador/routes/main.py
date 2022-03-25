@@ -31,7 +31,7 @@ def index():
     aconn = getcon()
     try:
         cursor = aconn.cursor(cursor_factory=psycopg2.extras.DictCursor) 
-        cursor.execute("SELECT * from ffiles")
+        cursor.execute("SELECT * from filegen")
         # Fetch result
         row = cursor.fetchone()
         fileArray = []  # listado o array vacio
@@ -40,8 +40,7 @@ def index():
             fileObj = dict()    # diccionario vacio
             fileObj['file'] = row['file']
             fileObj['descripcion'] = row['file_description']
-            fileObj['tag'] = row['file_tag']
-            fileObj['filepath'] = row['filepath']
+            fileObj['pagina'] = row['pagi']
             fileArray.append(fileObj)
             row = cursor.fetchone()
         return render_template('index.html', filelist=fileArray)
@@ -67,11 +66,11 @@ def filter():
     deffilter = request.form['textfilter']
     if ((deffilter == '') or (deffilter == None)):
         deffilter = 'all'
-        cursor.execute("SELECT * from ffiles")
+        cursor.execute("SELECT * from filegen")
     else:
-        sqlstr = 'SELECT * FROM ffiles WHERE file_description LIKE '
+        sqlstr = 'SELECT * FROM filegen WHERE UPPER(file_description) LIKE '
         # args=[deffilter+'%']
-        sqlstr = sqlstr + '\'' +'%'+ deffilter + '%' + '\'' + ' OR FILE_TAG LIKE  ' + '\'' +'%'+ deffilter + '%' + '\''
+        sqlstr = sqlstr + '\'' +'%'+ deffilter.upper() + '%' + '\'' 
 
         print(sqlstr)
         cursor.execute(sqlstr)
@@ -84,8 +83,7 @@ def filter():
         fileObj = dict()    # diccionario vacio
         fileObj['file'] = row['file']
         fileObj['descripcion'] = row['file_description']
-        fileObj['tag'] = row['file_tag']
-        fileObj['filepath'] = row['filepath']
+        fileObj['pagina'] = row['pagi']
         fileArray.append(fileObj)
         row = cursor.fetchone()
 

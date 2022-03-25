@@ -1,567 +1,234 @@
 # RECID
-file001
+file1001
 # FILE
-Manual de Electronica Basica.pdf
+file1001.jpg
 # FILE_DESCRIPTION
-Manual de electronica basica
-# TAG
-Electronica, libro
+Primera practica calificada de investigacion de operaciones III 2001-1
+# PAGINA
+1
 # ***
 # RECID
-file002
+file1002
 # FILE
-fotojos.jpg
+file1002.jpg
 # FILE_DESCRIPTION
-ninguna
-# TAG
-personal, sala, foto
+Primera practica calificada de investigacion de operaciones III 2001-1
+# PAGINA
+2
 # ***
 # RECID
-file003
+file1003
 # FILE
-sarapam.jpeg
+file1003.png
 # FILE_DESCRIPTION
-ninguna
-# TAG
-personal, pesca, sarapampa, foto
+The Markdown Cheat Sheet mud
+# PAGINA
+1
 # ***
 # RECID
-file004
+file1004
 # FILE
-pecao.jpeg
+file1004.txt
 # FILE_DESCRIPTION
-ninguna
-# TAG
-personal, pesca, foto
+Actualizar los cambios a repositorio github ssh desde terminal
+# PAGINA
+1
 # ***
 # RECID
-file005
+file1005
 # FILE
-joschorr.jpeg
+file1005.jpg
 # FILE_DESCRIPTION
-ninguna
-# TAG
-personal, pesca, foto, chorrillos
+Examen parcial de TP123V RBR 2005-1
+# PAGINA
+1
 # ***
 # RECID
-file006
+file1006
 # FILE
-jos.jpeg
+file1006.jpg
 # FILE_DESCRIPTION
-ninguna
-# TAG
-personal, sala, foto
+Examen parcial de TP123V RBR 2005-1
+# PAGINA
+2
 # ***
 # RECID
-file007
+file1007
 # FILE
-josplaya.jpeg
+file1007.jpg
 # FILE_DESCRIPTION
-ninguna
-# TAG
-personal, pesca, foto, chorrillos
+Examen parcial de Analisis economico en Ingenieria GP234 U/V/W  2019-1
+# PAGINA
+1
 # ***
 # RECID
-file008
+file1008
 # FILE
-jos3.jpeg
+file1008.jpg
 # FILE_DESCRIPTION
-ninguna
-# TAG
-personal, pesca, foto, chorrillos
+Examen final de investigacion de operaciones II  ST123U 2017-I
+# PAGINA
+1
 # ***
 # RECID
-file009
+file1009
 # FILE
-flacplayer.mp4
+conectarpsql.txt
 # FILE_DESCRIPTION
-ninguna
-# TAG
-Video, flacplayer
+Truco para como conectarse con el usuario postgres a una base de datos especifica
+# PAGINA
+1
 # ***
 # RECID
-file010
+file1010
 # FILE
-flacplayer2.mp4
+imagenesapdf.txt
 # FILE_DESCRIPTION
-ninguna
-# TAG
-Video, flacplayer
+truco sobre como convertir un monton de imagenes a pdf
+# PAGINA
+1
 # ***
 # RECID
-file011
+file1011
 # FILE
-mp3player.mp4
+convertirpdf2images.txt
 # FILE_DESCRIPTION
-ninguna
-# TAG
-Video, flacplayer
+truco sobre como descomponer un pdf a imagenes jpeg
+# PAGINA
+1
 # ***
 # RECID
-file012
+file1012
 # FILE
-mp3player2.mp4
+ctficadoransa.pdf
 # FILE_DESCRIPTION
-ninguna
-# TAG
-Video, flacplayer
+certificados de trabajo ransa
+# PAGINA
+1
 # ***
 # RECID
-file013
+file1013
 # FILE
-flacplayer3.mp4
+digitalescuaderno.pdf
 # FILE_DESCRIPTION
-ninguna
-# TAG
-Video, flacplayer
+cuaderno de sistemas digitales
+# PAGINA
+1
 # ***
 # RECID
-file014
+file1014
 # FILE
-flacplayer.jpeg
+digipcs.pdf
 # FILE_DESCRIPTION
-ninguna
-# TAG
-Video, flacplayer
+practicas de sistemas digitales
+# PAGINA
+1
 # ***
 # RECID
-file016
+file1015
 # FILE
-flacplayer4.mp4
+docker_cheat_sheet.jpeg
 # FILE_DESCRIPTION
-ninguna
-# TAG
-Video, flacplayer
+Docker Cheat sheet
+# PAGINA
+1
 # ***
 # RECID
-file017
+file1016
 # FILE
-serpost.jpeg
+downgradepdf.txt
 # FILE_DESCRIPTION
-ninguna
-# TAG
-serpost
+truco para bajar la resolucion a un pdf
+# PAGINA
+1
 # ***
 # RECID
-file018
+file1017
 # FILE
-jospla.jpeg
+gfvariaspcs.pdf
 # FILE_DESCRIPTION
-ninguna
-# TAG
-personal, arica, foto
+gestion financiera varias pcs
+# PAGINA
+1
 # ***
 # RECID
-file019
+file1018
 # FILE
-jos4.jpeg
+mdiscrecuaderno.pdf
 # FILE_DESCRIPTION
-ninguna
-# TAG
-personal, joscarro, foto
+cuaderno de matematica discreta
+# PAGINA
+1
 # ***
 # RECID
-file020
+file1019
 # FILE
-jos5.jpeg
+mercadotecniapc.pdf
 # FILE_DESCRIPTION
-ninguna
-# TAG
-personal, arica, foto
+practicas de mercadotecnia
+# PAGINA
+1
 # ***
 # RECID
-file021
+file1020
 # FILE
-josplaya4.jpeg
+mercaseparata.pdf
 # FILE_DESCRIPTION
-ninguna
-# TAG
-foto, personal, arica, playa
+separata de mercadotecnia
+# PAGINA
+1
 # ***
 # RECID
-file022
+file1021
 # FILE
-joshabich.jpeg
+ppcseparata.pdf
 # FILE_DESCRIPTION
-Reparando el honda crv
-# TAG
-honda, carro, jos
+separata de ppc
+# PAGINA
+1
 # ***
 # RECID
-file023
+file1022
 # FILE
-josarica2.jpeg
+opeiiseparata.pdf
 # FILE_DESCRIPTION
-Posando con la pesca.
-# TAG
-pesca, playa, arica
+separata de opii
+# PAGINA
+1
 # ***
 # RECID
-file024
+file1023
 # FILE
-josplayaa.jpeg
+opeiivariaspcs.pdf
 # FILE_DESCRIPTION
-Posando con la pesca.
-# TAG
-pesca, playa, arica
+varias practicas de opii
+# PAGINA
+1
 # ***
 # RECID
-file023
+file1024
 # FILE
-videopescando.mp4
+unirpdfs.txt
 # FILE_DESCRIPTION
-Video pescando una lorna en playa Arica.
-# TAG
-pesca, playa, arica
+consolidar varios pdfs en uno solo
+# PAGINA
+1
 # ***
 # RECID
-file026
+file1025
 # FILE
-jos22.jpeg
+syllabus.pdf
 # FILE_DESCRIPTION
-Foto de Jos en casa
-# TAG
-jos , casa, motorhead
+algunos syllabus
+# PAGINA
+1
 # ***
 # RECID
-file027
+file1026
 # FILE
-jos41.jpeg
+syllabusotro.pdf
 # FILE_DESCRIPTION
-Foto de Jos en casa
-# TAG
-jos , casa, motorhead
-# ***
-# RECID
-file028
-# FILE
-_DSC8592.jpg
-# FILE_DESCRIPTION
-Corvina pescada en playa los cedros
-# TAG
-jos , pesca, corvina
-# ***
-# RECID
-file029
-# FILE
-_DSC8593.jpg
-# FILE_DESCRIPTION
-Corvina pescada en playa los cedros
-# TAG
-jos , pesca, corvina
-# ***
-# RECID
-file030
-# FILE
-_DSC8594.jpg
-# FILE_DESCRIPTION
-Corvina pescada en playa los cedros
-# TAG
-jos , pesca, corvina
-# ***
-# RECID
-file031
-# FILE
-_DSC8595.jpg
-# FILE_DESCRIPTION
-Corvina pescada en playa los cedros
-# TAG
-jos , pesca, corvina
-# ***
-# RECID
-file032
-# FILE
-_DSC8597.jpg
-# FILE_DESCRIPTION
-Corvina pescada en playa los cedros
-# TAG
-jos , pesca, corvina
-# ***
-# RECID
-file033
-# FILE
-_DSC8598.jpg
-# FILE_DESCRIPTION
-Corvina pescada en playa los cedros
-# TAG
-jos , pesca, corvina
-# ***
-# RECID
-file034
-# FILE
-_DSC8598.jpg
-# FILE_DESCRIPTION
-Corvina pescada en playa los cedros
-# TAG
-jos , pesca, corvina
-# ***
-# RECID
-file035
-# FILE
-_DSC8599.jpg
-# FILE_DESCRIPTION
-Corvina pescada en playa los cedros
-# TAG
-jos , pesca, corvina
-# ***
-# RECID
-file036
-# FILE
-_DSC8600.jpg
-# FILE_DESCRIPTION
-Corvina pescada en playa los cedros
-# TAG
-jos , pesca, corvina
-# ***
-# RECID
-file037
-# FILE
-_DSC8601.jpg
-# FILE_DESCRIPTION
-Corvina pescada en playa los cedros
-# TAG
-jos , pesca, corvina
-# ***
-# RECID
-file038
-# FILE
-_DSC8602.jpg
-# FILE_DESCRIPTION
-Corvina pescada en playa los cedros
-# TAG
-jos , pesca, corvina
-# ***
-# RECID
-file039
-# FILE
-_DSC8603.jpg
-# FILE_DESCRIPTION
-Corvina pescada en playa los cedros
-# TAG
-jos , pesca, corvina
-# ***
-# RECID
-file40
-# FILE
-josarica.jpeg
-# FILE_DESCRIPTION
-Jos en playa arica
-# TAG
-jos , playa, arica
-# ***
-# RECID
-file41
-# FILE
-jospez.jpeg
-# FILE_DESCRIPTION
-Pesca de corvina jos
-# TAG
-jos , pesca, corvina
-# ***
-# RECID
-file42
-# FILE
-Lawren Harris (30).jpg
-# FILE_DESCRIPTION
-Pintura de Laurence Harris
-# TAG
-pintura
-# ***
-# RECID
-file43
-# FILE
-jospe.jpeg
-# FILE_DESCRIPTION
-Foto de Jos con camisa
-# TAG
-jos, camiza, casa
-# ***
-# RECID
-file44
-# FILE
-josboleta.pdf
-# FILE_DESCRIPTION
-Boleta de Matricula
-# TAG
-boleta, matricula
-# ***
-# RECID
-file45
-# FILE
-jososc.jpeg
-# FILE_DESCRIPTION
-Jos
-# TAG
-jos, toalla
-# ***
-# RECID
-file46
-# FILE
-josaz.jpeg
-# FILE_DESCRIPTION
-Jos
-# TAG
-jos, chompa
-# ***
-# RECID
-file47
-# FILE
-jospps.jpeg
-# FILE_DESCRIPTION
-Jos
-# TAG
-jos, chullo
-# ***
-# RECID
-file48
-# FILE
-jospesca.png
-# FILE_DESCRIPTION
-Jos
-# TAG
-pesca, chita
-# ***
-# RECID
-file49
-# FILE
-joste.jpg
-# FILE_DESCRIPTION
-Jos
-# TAG
-jos, playa, arica
-# ***
-# RECID
-file50
-# FILE
-jospp.jpeg
-# FILE_DESCRIPTION
-Jos
-# TAG
-jos, rostro
-# ***
-# RECID
-file51
-# FILE
-100_6718.jpg
-# FILE_DESCRIPTION
-Jos
-# TAG
-jos, playa, tuquillo
-# ***
-# RECID
-file52
-# FILE
-josx.jpeg
-# FILE_DESCRIPTION
-Jos
-# TAG
-jos, rostro
-# ***
-# RECID
-file53
-# FILE
-jos344.jpeg
-# FILE_DESCRIPTION
-Jos
-# TAG
-jos, rostro
-# ***
-# RECID
-file54
-# FILE
-josplaya4.jpeg
-# FILE_DESCRIPTION
-Pesca en playa arica, casa de aldo
-# TAG
-casa, aldo
-# ***
-# RECID
-file55
-# FILE
-jos4.jpeg
-# FILE_DESCRIPTION
-jos en el honda crv
-# TAG
-jos, honda, carro
-# ***
-# RECID
-file56
-# FILE
-jospla.jpeg
-# FILE_DESCRIPTION
-jos en la casa de aldo
-# TAG
-jos, torso, arica
-# ***
-# RECID
-file57
-# FILE
-serpost.jpg
-# FILE_DESCRIPTION
-guia de carga prohibida de serpost
-# TAG
-guia, serpost
-# ***
-# RECID
-file58
-# FILE
-jos3.jpeg
-# FILE_DESCRIPTION
-jos en chorrillos
-# TAG
-jos, pesca, chorrillos
-# ***
-# RECID
-file59
-# FILE
-josplaya.jpeg
-# FILE_DESCRIPTION
-jos en chorrillos
-# TAG
-jos, pesca, chorrillos
-# ***
-# RECID
-file60
-# FILE
-joschorr.jpeg
-# FILE_DESCRIPTION
-jos en chorrillos
-# TAG
-jos, pesca, chorrillos
-# ***
-# RECID
-file61
-# FILE
-pecao.jpeg
-# FILE_DESCRIPTION
-pesca valde rojo
-# TAG
-jos, pesca
-# ***
-# RECID
-file62
-# FILE
-sarapam.jpeg
-# FILE_DESCRIPTION
-pesca de jos en sarapampa
-# TAG
-jos, pesca,sarapampa
-# ***
-# RECID
-file63
-# FILE
-fotojos.jpeg
-# FILE_DESCRIPTION
-jos en la sala
-# TAG
-jos, sala
-# ***
-# RECID
-file64
-# FILE
-joscappez.jpeg
-# FILE_DESCRIPTION
-corvina capturada
-# TAG
-jos, pesca, corvina
+algunos otros syllabus
+# PAGINA
+1
 # ***
