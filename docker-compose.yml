@@ -1,5 +1,5 @@
 version: '3.8'
-
+ 
 services:
   pythonapp:
     container_name: pythonapp
@@ -10,32 +10,20 @@ services:
     ports:
       - "80:80"
     environment:
-      - DATABASE_URL=postgresql://postgres:docker@db:5432/postgres
+      - DATABASE_URL=postgres://docker:docker@db:5432/docker
     depends_on:
       - db
     volumes:
-      - type: bind
-        source:  /home/rufus/Descargas/imgdigitalized
-        target:  /imgdigitalized
-
+      - /home/rufus/Descargas/imgdigitalized:/imgdigitalized
+ 
   db:
     container_name: db
-    image: postgres:12
-    build: 
-      context: .
-      dockerfile: Dockerfile_db
+    image: postgres
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD=docker
       - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker
       - POSTGRES_DB=docker
     volumes:
-      - pgdata:/var/lib/postgresql/data
-      
-volumes:
-  pgdata: {}
-
-  #sudo systemctl stop nginx
-  #sudo service postgresql stop
-  # sudo systemctl stop nginx & sudo service postgresql stop
+      - /opt/db:/var/lib/postgresql/data
