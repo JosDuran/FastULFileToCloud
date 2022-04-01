@@ -6,7 +6,7 @@ def getcon():
 
     if ((ENVIROMENT == 'production-heroku')  or (ENVIROMENT == 'development-bdremote') or (ENVIROMENT == 'development-fulllocal')) : 
         
-        conn = psycopg2.connect(DATABASE_URL, sslmode='disable')
+        conn = psycopg2.connect(DATABASE_URL, sslmode='require')
           
     else:
         conn = sqlite3.connect(DATABASE_URL, check_same_thread=False)

@@ -18,7 +18,11 @@ services:
  
   db:
     container_name: db
-    image: postgres
+    image: postgresjoscert
+    command: -c ssl=on -c ssl_cert_file=/var/lib/postgresql/server.crt -c ssl_key_file=/var/lib/postgresql/server.key
+    build:
+      context: .
+      dockerfile: Dockerfile_db
     ports:
       - "5432:5432"
     environment:
