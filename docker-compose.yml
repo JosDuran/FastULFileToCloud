@@ -8,17 +8,26 @@ services:
         context: .
         dockerfile: Dockerfile_app
     ports:
-      - "80:80"
+      - "5000:5000"
     environment:
+      - FLASK_ENV=development-fulllocal
+      - FLASK_APP=indexador
       - DATABASE_URL=postgres://docker:docker@db:5432/docker
     depends_on:
       - db
+      - nginx
     volumes:
       - /home/rufus/Descargas/imgdigitalized:/imgdigitalized
+    networks:
+      - netjos
  
   db:
     container_name: db
-    image: postgres
+    image: postgresjoscert
+    command: -c ssl=on -c ssl_cert_file=/var/lib/postgresql/server.crt -c ssl_key_file=/var/lib/postgresql/server.key
+    build:
+      context: .
+      dockerfile: Dockerfile_db
     ports:
       - "5432:5432"
     environment:
@@ -27,3 +36,21 @@ services:
       - POSTGRES_DB=docker
     volumes:
       - /opt/db:/var/lib/postgresql/data
+    networks:
+      - netjos
+
+  nginx:
+    container_name: nginxjos
+    build:
+      context: .
+      dockerfile: Dockerfile_nginx    
+    restart: always
+    ports:
+      - "80:80"
+      -  "443:443"
+    volumes:
+      - ./ssl:/etc/nginx/certs
+    networks:
+      - netjos  
+networks:
+  netjos:

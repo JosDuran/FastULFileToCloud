@@ -10,6 +10,8 @@ EXPOSE 80
 
 # RUN flask create_database
 
-CMD ["flask", "run", "--host=0.0.0.0", "--port=80"]
+# CMD ["flask", "run", "--host=0.0.0.0", "--port=80"]
 
 #docker-compose up -d pythonapp
+
+CMD ["uwsgi", "wsgi.ini"]
