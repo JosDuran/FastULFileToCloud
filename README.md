@@ -1,6 +1,6 @@
 # FastULFileToCloud
 
-Esta es un CMS muy basico para trabajar con archivos, ya sea multimedia o cualquier otro tipo de archivo, que se desee que este en la web para su visualizacion. Desarrollado en HTML5 Y como backend he usado  en python (flask) y base de datos postgresql, la particularidad es que la interaccion con la base de datos, es integramente a travez de sentencias SQL, ya que no se a usado ORM alguno. 
+Esta es una aplicacion para subir documentos e imagenes a la web de manera rapida para su visualizacion. Desarrollado en HTML5 Y como backend he usado  en python (flask) y base de datos postgresql, la particularidad es que la interaccion con la base de datos, es integramente a travez de sentencias SQL, ya que no se a usado ORM alguno. 
 
 Cualquier persona (que hable español o ingles) es bienvenida a unirse a este proyecto, para eso me tiene que enviar un correo a 
 
