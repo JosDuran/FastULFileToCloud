@@ -1,4 +1,4 @@
-# indexador
+# FastULFileToCloud
 
 Esta es un CMS muy basico para trabajar con archivos, ya sea multimedia o cualquier otro tipo de archivo, que se desee que este en la web para su visualizacion. Desarrollado en HTML5 Y como backend he usado  en python (flask) y base de datos postgresql, la particularidad es que la interaccion con la base de datos, es integramente a travez de sentencias SQL, ya que no se a usado ORM alguno. 
 
