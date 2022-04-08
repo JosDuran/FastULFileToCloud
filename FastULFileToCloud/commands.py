@@ -52,9 +52,7 @@ def create_database():
 def create_tables():
     aconn = getcon()
     if (ENVIROMENT == 'development') or (ENVIROMENT == 'development-fulllocal'):
-        screate = ' CREATE TABLE filegen ( RECID  VARCHAR(255) NOT NULL,  FILE VARCHAR(255) NOT NULL,  FILE_DESCRIPTION VARCHAR(255) NOT NULL,' \
-                ' PAGI INTEGER NOT NULL CHECK (PAGI >0) )'
-    
+        screate = ' CREATE TABLE filegen ( RECID  VARCHAR(255) NOT NULL,  FILE VARCHAR(255) NOT NULL,  FILE_DESCRIPTION VARCHAR(255) NOT NULL, )'     
         commands = (
         screate ,
         )
@@ -111,31 +109,28 @@ def insert_data():
     resto = (numlineass % 9 )
     esmult = (  resto == 0)
     if not esmult:
-        raise 'El archivo de entrada debe tener un numero de lineas multiplo de 9'
+        raise 'El archivo de entrada debe tener un numero de lineas multiplo de 7'
     
-    numiter = ( len(lista) // 9 )
+    lineas = 7
+    numiter = ( len(lista) // lineas )
+    
 
     for i in range(numiter):
         #print( 'elnumero de iteraciones es ', numiter)
-        numlinearecid = i*9+1
+        numlinearecid = i*lineas+1
         linearecid = str(lista[numlinearecid]).strip()
         aRecid = linearecid
-        numlineafile = i*9+3
+        numlineafile = i*lineas+3
         lineafile = str(lista[numlineafile]).strip()
         aFile = lineafile
-        numlineafiledesc = i*9+ +5
+        numlineafiledesc = i*lineas+ +5
         lineafiledesc = str(lista[numlineafiledesc]).strip()
         aFileDesc = lineafiledesc
-        numlineapag = i*9+7
-        lineanropag = str(lista[numlineapag]).strip()
-        aPag = lineanropag
-
-                
+                     
         fileobj = dict()
         fileobj['RECID'] = aRecid
         fileobj['FILE'] = aFile
         fileobj['FILE_DESCRIPTION'] = aFileDesc
-        fileobj['PAGINA'] = aPag
 
         aTupla = (aRecid, aFile,aFileDesc,)
         fileobj['TUPLAS'] = aTupla
@@ -143,11 +138,11 @@ def insert_data():
     print (fileobj.values())
     aconn = getcon()
     aconn.autocommit = True
-    listtuples = [(d['RECID'], d['FILE'], d['FILE_DESCRIPTION'], d['PAGINA']) for d in listaobjs]
+    listtuples = [(d['RECID'], d['FILE'], d['FILE_DESCRIPTION'] ) for d in listaobjs]
     print(listtuples)
     try:
         cursor = aconn.cursor()
-        query = "INSERT INTO filegen (RECID, FILE, FILE_DESCRIPTION, PAGI ) VALUES(%s,%s,%s,%s)"
+        query = "INSERT INTO filegen (RECID, FILE, FILE_DESCRIPTION) VALUES(%s,%s,%s)"
         print(query)
         cursor.executemany(query,listtuples)
     finally:
