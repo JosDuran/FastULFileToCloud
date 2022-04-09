@@ -52,9 +52,7 @@ def create_database():
 def create_tables():
     aconn = getcon()
     if (ENVIROMENT == 'development') or (ENVIROMENT == 'development-fulllocal'):
-        screate = ' CREATE TABLE filegen ( RECID  VARCHAR(255) NOT NULL,  FILE VARCHAR(255) NOT NULL,  FILE_DESCRIPTION VARCHAR(255) NOT NULL,' \
-                ' PAGI INTEGER NOT NULL CHECK (PAGI >0) )'
-    
+        screate = ' CREATE TABLE filegen ( RECID  VARCHAR(255) NOT NULL,  FILE VARCHAR(255) NOT NULL,  FILE_DESCRIPTION VARCHAR(255) NOT NULL )'     
         commands = (
         screate ,
         )
@@ -75,6 +73,7 @@ def create_tables():
     finally: 
         if aconn is not None: 
             aconn.close() 
+    return 'ok'
 
 
 @click.command(name='insert_data')
@@ -82,7 +81,7 @@ def create_tables():
 def insert_data():
     fileArray = []  # listado o array vacio
     apath = os.getcwd()
-    afullpath = apath + "/indexador/database.MD"
+    afullpath = apath + "/FastULFileToCloud/database.MD"
     f = open(afullpath, "r")
   
 
@@ -104,38 +103,35 @@ def insert_data():
     aFile = ''
     aFileDesc = ''
     
-
+    lineas = 7
     numlineass = len(lista)
     esmult9 = False
     resto = 0
-    resto = (numlineass % 9 )
+    resto = (numlineass % lineas )
     esmult = (  resto == 0)
     if not esmult:
-        raise 'El archivo de entrada debe tener un numero de lineas multiplo de 9'
+        raise 'El archivo de entrada debe tener un numero de lineas multiplo de ' + str(lineas)
     
-    numiter = ( len(lista) // 9 )
+    
+    numiter = ( len(lista) // lineas )
+    
 
     for i in range(numiter):
         #print( 'elnumero de iteraciones es ', numiter)
-        numlinearecid = i*9+1
+        numlinearecid = i*lineas+1
         linearecid = str(lista[numlinearecid]).strip()
         aRecid = linearecid
-        numlineafile = i*9+3
+        numlineafile = i*lineas+3
         lineafile = str(lista[numlineafile]).strip()
         aFile = lineafile
-        numlineafiledesc = i*9+ +5
+        numlineafiledesc = i*lineas+ +5
         lineafiledesc = str(lista[numlineafiledesc]).strip()
         aFileDesc = lineafiledesc
-        numlineapag = i*9+7
-        lineanropag = str(lista[numlineapag]).strip()
-        aPag = lineanropag
-
-                
+                     
         fileobj = dict()
         fileobj['RECID'] = aRecid
         fileobj['FILE'] = aFile
         fileobj['FILE_DESCRIPTION'] = aFileDesc
-        fileobj['PAGINA'] = aPag
 
         aTupla = (aRecid, aFile,aFileDesc,)
         fileobj['TUPLAS'] = aTupla
@@ -143,16 +139,19 @@ def insert_data():
     print (fileobj.values())
     aconn = getcon()
     aconn.autocommit = True
-    listtuples = [(d['RECID'], d['FILE'], d['FILE_DESCRIPTION'], d['PAGINA']) for d in listaobjs]
+    listtuples = [(d['RECID'], d['FILE'], d['FILE_DESCRIPTION'] ) for d in listaobjs]
     print(listtuples)
     try:
         cursor = aconn.cursor()
-        query = "INSERT INTO filegen (RECID, FILE, FILE_DESCRIPTION, PAGI ) VALUES(%s,%s,%s,%s)"
+        query = "INSERT INTO filegen (RECID, FILE, FILE_DESCRIPTION) VALUES(%s,%s,%s)"
         print(query)
         cursor.executemany(query,listtuples)
-    finally:
-        aconn.commit()           
-        aconn.close()
+        aconn.commit
+    except (Exception, psycopg2.DatabaseError) as error: 
+        print(error) 
+    finally: 
+        if aconn is not None: 
+            aconn.close()     
     return 'ok'
         
 @click.command(name='empty_table')
@@ -182,6 +181,7 @@ def empty_table():
     finally: 
         if aconn is not None: 
             aconn.close() 
+    return 'ok'
 
 
 
