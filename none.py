@@ -1,3 +1,3 @@
-from FastULFileToCloud import create_app
+from indexador import create_app
 
 app = create_app()
