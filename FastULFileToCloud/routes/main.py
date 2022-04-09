@@ -5,8 +5,8 @@ import os
 
 
 from FastULFileToCloud.extensions import getcon
-from FastULFileToCloud import MEDIA_DIR
-from FastULFileToCloud import ENVIROMENT
+from FastULFileToCloud.settings import MEDIA_DIR
+from FastULFileToCloud.settings import ENVIROMENT
 
 
 main = Blueprint('main', __name__)

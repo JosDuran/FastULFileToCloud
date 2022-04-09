@@ -1,4 +1,5 @@
 version: '3.8'
+# Version con flask y postgres corriendo sin certificados ninguno, osea sin ssl
  
 services:
   pythonapp:
@@ -8,14 +9,13 @@ services:
         context: .
         dockerfile: Dockerfile_app
     ports:
-      - "5000:5000"
+      - "80:80"
     environment:
       - FLASK_ENV=development-fulllocal
-      - FLASK_APP=indexador
+      - FLASK_APP=FastULFileToCloud
       - DATABASE_URL=postgres://docker:docker@db:5432/docker
     depends_on:
       - db
-      - nginx
     volumes:
       - /home/rufus/Descargas/cheat:/cheat
     networks:
@@ -23,8 +23,7 @@ services:
  
   db:
     container_name: db
-    image: postgresjoscert
-    command: -c ssl=on -c ssl_cert_file=/var/lib/postgresql/server.crt -c ssl_key_file=/var/lib/postgresql/server.key
+    image: dbuncerted
     build:
       context: .
       dockerfile: Dockerfile_db
@@ -39,18 +38,5 @@ services:
     networks:
       - netjos
 
-  nginx:
-    container_name: nginxjos
-    build:
-      context: .
-      dockerfile: Dockerfile_nginx    
-    restart: always
-    ports:
-      - "80:80"
-      -  "443:443"
-    volumes:
-      - ./ssl:/etc/nginx/certs
-    networks:
-      - netjos  
 networks:
   netjos:

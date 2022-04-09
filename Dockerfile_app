@@ -14,4 +14,4 @@ EXPOSE 80
 
 #docker-compose up -d pythonapp
 
-CMD ["uwsgi", "wsgi.ini"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=80"]
