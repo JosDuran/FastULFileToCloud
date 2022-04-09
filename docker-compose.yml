@@ -11,13 +11,13 @@ services:
       - "5000:5000"
     environment:
       - FLASK_ENV=development-fulllocal
-      - FLASK_APP=indexador
+      - FLASK_APP=FastULFileToCloud
       - DATABASE_URL=postgres://docker:docker@db:5432/docker
     depends_on:
       - db
       - nginx
     volumes:
-      - /home/rufus/Descargas/imgdigitalized:/imgdigitalized
+      - /home/rufus/Descargas/cheat:/cheat
     networks:
       - netjos
  

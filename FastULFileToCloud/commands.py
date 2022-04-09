@@ -52,7 +52,7 @@ def create_database():
 def create_tables():
     aconn = getcon()
     if (ENVIROMENT == 'development') or (ENVIROMENT == 'development-fulllocal'):
-        screate = ' CREATE TABLE filegen ( RECID  VARCHAR(255) NOT NULL,  FILE VARCHAR(255) NOT NULL,  FILE_DESCRIPTION VARCHAR(255) NOT NULL, )'     
+        screate = ' CREATE TABLE filegen ( RECID  VARCHAR(255) NOT NULL,  FILE VARCHAR(255) NOT NULL,  FILE_DESCRIPTION VARCHAR(255) NOT NULL )'     
         commands = (
         screate ,
         )
@@ -80,7 +80,7 @@ def create_tables():
 def insert_data():
     fileArray = []  # listado o array vacio
     apath = os.getcwd()
-    afullpath = apath + "/indexador/database.MD"
+    afullpath = apath + "/FastULFileToCloud/database.MD"
     f = open(afullpath, "r")
   
 
@@ -102,16 +102,16 @@ def insert_data():
     aFile = ''
     aFileDesc = ''
     
-
+    lineas = 7
     numlineass = len(lista)
     esmult9 = False
     resto = 0
-    resto = (numlineass % 9 )
+    resto = (numlineass % lineas )
     esmult = (  resto == 0)
     if not esmult:
-        raise 'El archivo de entrada debe tener un numero de lineas multiplo de 7'
+        raise 'El archivo de entrada debe tener un numero de lineas multiplo de ' + str(lineas)
     
-    lineas = 7
+    
     numiter = ( len(lista) // lineas )
     
 
@@ -145,9 +145,11 @@ def insert_data():
         query = "INSERT INTO filegen (RECID, FILE, FILE_DESCRIPTION) VALUES(%s,%s,%s)"
         print(query)
         cursor.executemany(query,listtuples)
-    finally:
-        aconn.commit()           
-        aconn.close()
+    except (Exception, psycopg2.DatabaseError) as error: 
+        print(error) 
+    finally: 
+        if aconn is not None: 
+            aconn.close()     
     return 'ok'
         
 @click.command(name='empty_table')
