@@ -145,6 +145,7 @@ def insert_data():
         query = "INSERT INTO filegen (RECID, FILE, FILE_DESCRIPTION) VALUES(%s,%s,%s)"
         print(query)
         cursor.executemany(query,listtuples)
+        aconn.commit
     except (Exception, psycopg2.DatabaseError) as error: 
         print(error) 
     finally: 
