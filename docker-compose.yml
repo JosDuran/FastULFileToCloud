@@ -14,7 +14,7 @@ services:
     depends_on:
       - db
     volumes:
-      - /home/rufus/Descargas/imgdigitalized:/imgdigitalized
+      - /home/rufus/Descargas/cheat:/cheat
  
   db:
     container_name: db

@@ -4,9 +4,9 @@ import psycopg2.extras
 import os
 
 
-from indexador.extensions import getcon
-from indexador.settings import MEDIA_DIR
-from indexador.settings import ENVIROMENT
+from FastULFileToCloud.extensions import getcon
+from FastULFileToCloud.settings import MEDIA_DIR
+from FastULFileToCloud.settings import ENVIROMENT
 
 
 main = Blueprint('main', __name__)
@@ -40,7 +40,6 @@ def index():
             fileObj = dict()    # diccionario vacio
             fileObj['file'] = row['file']
             fileObj['descripcion'] = row['file_description']
-            fileObj['pagina'] = row['pagi']
             fileArray.append(fileObj)
             row = cursor.fetchone()
         return render_template('index.html', filelist=fileArray)
@@ -83,7 +82,6 @@ def filter():
         fileObj = dict()    # diccionario vacio
         fileObj['file'] = row['file']
         fileObj['descripcion'] = row['file_description']
-        fileObj['pagina'] = row['pagi']
         fileArray.append(fileObj)
         row = cursor.fetchone()
 

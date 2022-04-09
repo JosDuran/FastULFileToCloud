@@ -1,6 +1,6 @@
-# indexador
+# FastULFileToCloud
 
-Esta es un CMS muy basico para trabajar con archivos, ya sea multimedia o cualquier otro tipo de archivo, que se desee que este en la web para su visualizacion. Desarrollado en HTML5 Y como backend he usado  en python (flask) y base de datos postgresql, la particularidad es que la interaccion con la base de datos, es integramente a travez de sentencias SQL, ya que no se a usado ORM alguno. 
+Esta es una aplicacion para subir documentos,  imagenes, videos, etc a la web de manera rapida para su visualizacion. Desarrollado en HTML5  como backend he usado  en python (flask) y base de datos postgresql, la particularidad es que la interaccion con la base de datos, es integramente a travez de sentencias SQL, ya que no se a usado ORM alguno. 
 
 Cualquier persona (que hable español o ingles) es bienvenida a unirse a este proyecto, para eso me tiene que enviar un correo a 
 
@@ -14,18 +14,33 @@ Se debe usar el mismo password del usuario postgres para configurar el archivo .
 
 Se adjunta un archivo DATABASE.md, en dicho archivo esta un indice que detalla cada archivo que se indexara en la basde de datos 
 
-Para la creacion de la tabla luego de activar el entorno virtual ejecutar: 
+Para hacer el despliegue de la aplicacion se esta usando la tecnologia de Docker
 
-`flask create_tables`
+# Instalacion
 
-Para llenar la tabla con el archivo de database.md ejecutar:
+La instalacion de docker va por cuenta del usuario, se recomienda usar linux
 
-`flask insert_data`
+Abrir una terminal en la carpeta de la aplicacion y ejecutar
 
-Para ejecutar el servidor:
+```console
+ docker-compose up --build
+```
 
-`flask run`
+Para la creacion de ls tablas  es necesario ingresar al contenedor pythonapp:
 
-Para ver la app web desde el navegador poner en la barra de direcciones
+```console
+docker exec -it 282 bin/bash
+flask create_tables
+#donde 282 es el id del contenedor
 
-localhost:5000
+# Para llenar de data las tablas
+flask insert_data
+```
+
+Finalmente, para ejecutar la aplicacion entrar a htpp://localhost
+
+Si es desde la misma pc o
+
+htpp://ipadddress
+
+si es desde otra pc de la red
