@@ -24,22 +24,22 @@ Recomendado desplegarlo sobre linux con los siguientes paquetes: Docker, Docker-
       - /home/rufus/Descargas/cheat:/cheat
 ```
 
-3) construimos el ecosistema de contenedores
+4) construimos el ecosistema de contenedores
 
 ```console
  docker-compose up --build
 ```
 
-4) A continuacion se debe listar los procesos creados
+5) A continuacion se debe listar los procesos creados
 
 ```console
  docker ps -a
 ```
 ![](dockerps.png)
 
-5) Elegir el id del contenedor que apunta a la imagen pythonapp
+6) Elegir el id del contenedor que apunta a la imagen pythonapp
 
-6) ejecutar
+7) a continuacion, vamos a ingresar a este contenedor, y realizar algunas operaciones en la base de datos para inicializarla.
 
 ```console
  docker exec -it edd bin/bash
@@ -48,4 +48,4 @@ Recomendado desplegarlo sobre linux con los siguientes paquetes: Docker, Docker-
  exit
  # Debe remplazar el edd por el id de su contenedor
 ```
-7)  ingresar a la siguiente direccion de su navegador: http://localhost para probar la aplicacion
+8)  ingresar a la siguiente direccion de su navegador: http://localhost para probar la aplicacion
