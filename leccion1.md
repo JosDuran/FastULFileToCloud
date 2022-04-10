@@ -8,12 +8,10 @@ Recomendado desplegarlo sobre linux con los siguientes paquetes: Docker, Docker-
 
 1) Clonamos el repositorio
 
-git@github.com:JosDuran/FastULFileToCloud.git
-
 ```console
- git-clone 
+ git-clone git@github.com:JosDuran/FastULFileToCloud.git
 ```
-2) nos ubicamos en la rama flaskandpg, para traer el codigo de la rama correcta
+2) nos ubicamos en la rama flaskandpg, y descargamos esta rama.
 
 ```console
  git checkout flaskandpg
