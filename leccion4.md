@@ -26,29 +26,29 @@ Recomendado desplegarlo sobre linux con los siguientes paquetes: Docker, Docker-
 ```
 
 4) ejecutamos el archivo aios_gen_cert.sh (cortesia de https://itnext.io/postgresql-docker-image-with-ssl-certificate-signed-by-a-custom-certificate-authority-ca-3df41b5b53) para generar los certificados
-    4.1) ```console
+  
+```console
  chmod +x aios_gen_cert.sh
  ./aios_gen_cert.sh
 ```
-    4.2) creamos una carpeta ssl y ponemos ahi todos los archivos de clave generados
+5) creamos una carpeta ssl y ponemos ahi todos los archivos de clave generados
 
-```
-5) construimos el ecosistema de contenedores
+6) construimos el ecosistema de contenedores
 
 ```console
  docker-compose up --build
 ```
 
-6) A continuacion se debe listar los procesos creados
+7) A continuacion se debe listar los procesos creados
 
 ```console
  docker ps -a
 ```
 ![](dockerps.png)
 
-7) Elegir el id del contenedor que apunta a la imagen pythonapp
+8) Elegir el id del contenedor que apunta a la imagen pythonapp
 
-8)  a continuacion, vamos a ingresar a este contenedor, y realizar algunas operaciones en la base de datos para inicializarla.
+9)  a continuacion, vamos a ingresar a este contenedor, y realizar algunas operaciones en la base de datos para inicializarla.
 
 ```console
  docker exec -it edd bin/bash
@@ -57,4 +57,4 @@ Recomendado desplegarlo sobre linux con los siguientes paquetes: Docker, Docker-
  exit
  # Debe remplazar el edd por el id de su contenedor
 ```
-9)  ingresar a la siguiente direccion de su navegador: http://localhost para probar la aplicacion
+10)  ingresar a la siguiente direccion de su navegador: http://localhost para probar la aplicacion
