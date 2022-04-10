@@ -4,6 +4,9 @@ Flask + SSLPostgres + SSLnginx + Docker
 
 Recomendado desplegarlo sobre linux con los siguientes paquetes: Docker, Docker-Compose, y si usan windows ademas deberan instalar git para windows
 
+## Advertencia
+ la aplicacion que vamos a desplegar, puede llegar a ser insegura, por contener la instruccion sendfile, sin embargo, para fines didacticos nos sera suficiente
+
 ## Pasos a seguir para hacer el deploy
 
 1) Clonamos el repositorio
