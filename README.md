@@ -8,7 +8,10 @@ Cualquier consulta o sugerencia
 
 ## requerimientos
 
-Debido a que la aplicacion web, corre sobre un ecosistema DOCKER-COMPOSE solo es necesario instalar docker y hacer un par de pasos intermedios
+Debido a que la aplicacion web, corre sobre un ecosistema DOCKER-COMPOSE solo es necesario instalar docker y hacer un par de pasos intermedios.
+
+## Advertencia
+ la aplicacion que vamos a desplegar, puede llegar a ser insegura, por contener la instruccion sendfile, sin embargo, para fines didacticos nos sera suficiente
 
 # Instalacion
 
