@@ -6,8 +6,6 @@ Cualquier consulta o sugerencia
 
  am9zZHVyYW5AZ21haWwuY29t   (esta codificado a base64)
 
-## Advertencia
- la aplicacion que vamos a desplegar, puede llegar a ser insegura, por contener la instruccion sendfile, sin embargo, para fines didacticos nos sera suficiente
 
 ## requerimientos
 
