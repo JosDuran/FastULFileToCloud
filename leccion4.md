@@ -8,40 +8,47 @@ Recomendado desplegarlo sobre linux con los siguientes paquetes: Docker, Docker-
 
 1) Clonamos el repositorio
 
-git@github.com:JosDuran/FastULFileToCloud.git
-
 ```console
- git-clone ```console
+ git-clone git@github.com:JosDuran/FastULFileToCloud.git
 ```
 2) nos ubicamos en la rama nginxsssl, para traer el codigo de la rama correcta
 
 ```console
  git checkout nginxsssl
+```
 
-3) ejecutamos el archivo aios_gen_cert.sh (cortesia de https://itnext.io/postgresql-docker-image-with-ssl-certificate-signed-by-a-custom-certificate-authority-ca-3df41b5b53) para generar los certificados
-    3.1) ```console
+
+ 3) Editamos el archivo docker-compose.yml, en este punto, se debe remplazar la primera parte de la seccion por la ruta absoluta de la carpeta webimages
+
+ ```console
+     volumes:
+      - /home/rufus/Descargas/cheat:/cheat
+```
+
+4) ejecutamos el archivo aios_gen_cert.sh (cortesia de https://itnext.io/postgresql-docker-image-with-ssl-certificate-signed-by-a-custom-certificate-authority-ca-3df41b5b53) para generar los certificados
+    4.1) ```console
  chmod +x aios_gen_cert.sh
  ./aios_gen_cert.sh
 ```
-    3.2) creamos una carpeta ssl y ponemos ahi todos los archivos de clave generados
+    4.2) creamos una carpeta ssl y ponemos ahi todos los archivos de clave generados
 
 ```
-4) construimos el ecosistema de contenedores
+5) construimos el ecosistema de contenedores
 
 ```console
  docker-compose up --build
 ```
 
-5) A continuacion se debe listar los procesos creados
+6) A continuacion se debe listar los procesos creados
 
 ```console
  docker ps -a
 ```
 ![](dockerps.png)
 
-6) Elegir el id del contenedor que apunta a la imagen pythonapp
+7) Elegir el id del contenedor que apunta a la imagen pythonapp
 
-7) ejecutar
+8)  a continuacion, vamos a ingresar a este contenedor, y realizar algunas operaciones en la base de datos para inicializarla.
 
 ```console
  docker exec -it edd bin/bash
@@ -50,4 +57,4 @@ git@github.com:JosDuran/FastULFileToCloud.git
  exit
  # Debe remplazar el edd por el id de su contenedor
 ```
-8)  ingresar a la siguiente direccion de su navegador: http://localhost para probar la aplicacion
+9)  ingresar a la siguiente direccion de su navegador: http://localhost para probar la aplicacion
