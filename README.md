@@ -1,6 +1,6 @@
 # FastULFileToCloud
 
-Esta es una aplicacion para subir documentos,  imagenes, videos, etc a la web de manera rapida para su visualizacion. Desarrollado en HTML5  como backend he usado  en python (flask) y base de datos postgresql, la particularidad es que la interaccion con la base de datos, es integramente a travez de sentencias SQL, ya que no se a usado ORM alguno. 
+Esta es una aplicacion para subir documentos,  imagenes, videos, etc a la web de manera rapida para su visualizacion. Desarrollado en HTML5  como backend he usado  en python (flask) y base de datos postgresql, la particularidad es que la interaccion con la base de datos, es integramente a travez de sentencias SQL, ya que no se a usado ORM alguno. Puede servir como una aplicacion paperless pues de hecho, permite subir imagenes a una base de datos y tenerlas clasificadas por un el campo de busqueda descripcion.
 
 Cualquier consulta o sugerencia  
 
